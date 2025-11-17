@@ -17,7 +17,7 @@ const Login = () => {
 
     try {
       const response = await fetch(
-        "http://localhost/ppkd/carsales/backend/api/auth/login.php",
+        "http://localhost/.../carsales/backend/api/auth/login.php",
         {
           method: "POST",
           headers: {
@@ -74,7 +74,7 @@ const Login = () => {
               className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring focus:border-blue-400"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="admin@example.com"
+              placeholder=""
             />
           </div>
 
@@ -85,7 +85,7 @@ const Login = () => {
               className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring focus:border-blue-400"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="********"
+              placeholder=""
             />
           </div>
 
