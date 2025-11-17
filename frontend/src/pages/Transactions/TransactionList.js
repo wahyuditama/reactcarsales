@@ -7,7 +7,7 @@ function TransactionList() {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost/ppkd/carsales/backend/api/transactions/get_transactions.php")
+    fetch("http://localhost/.../carsales/backend/api/transactions/get_transactions.php")
       .then((res) => res.json())
       .then((data) => setTransactions(data))
       .catch((err) => console.log(err));
@@ -18,7 +18,7 @@ function TransactionList() {
 
     try {
       const response = await fetch(
-        `http://localhost/ppkd/carsales/backend/api/transactions/delete_transactions.php?id=${id}`,
+        `http://localhost/.../carsales/backend/api/transactions/delete_transactions.php?id=${id}`,
         { method: "GET" }
       );
       const result = await response.json();
