@@ -34,7 +34,7 @@ const AddCar = () => {
 
     try {
       const response = await fetch(
-        "http://localhost/ppkd/carsales/backend/api/cars/add_car.php",
+        "http://localhost/.../carsales/backend/api/cars/add_car.php",
         {
           method: "POST",
           body: data,
