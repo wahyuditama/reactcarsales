@@ -9,7 +9,7 @@ const Dashboard = () => {
       const fetchCars = async () => {
         try {
           const response = await fetch(
-            "http://localhost/ppkd/carsales/backend/api/cars/get_cars.php"
+            "http://localhost/.../carsales/backend/api/cars/get_cars.php"
           );
           const result = await response.json();
           if (result.status === "success") {
