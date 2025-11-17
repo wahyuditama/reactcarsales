@@ -1,9 +1,3 @@
-
-===================================================
-Penting => /* Tolong Bagian ... (titik-titik) http://localhost/ ... /carsales/backend/api/cars/get_cars.php ,
-isi sesuai dengan directory kalian */
-===================================================
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
