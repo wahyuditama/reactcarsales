@@ -40,7 +40,7 @@ const Dashboard = () => {
                     cars.map((car, index) => (
                     <div className="max-w-sm rounded-lg overflow-hidden shadow-lg bg-white dark:bg-gray-800">
                         <img
-                            src={`http://localhost/ppkd/carsales/backend/uploads/${car.image}`}
+                            src={`http://localhost/.../carsales/backend/uploads/${car.image}`}
                             alt={`car.name`}
                             className="w-100 h-48 object-cover text center rounded-md shadow"
                         />
