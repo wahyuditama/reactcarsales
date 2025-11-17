@@ -22,7 +22,7 @@ const EditCar = () => {
 useEffect(() => {
   const fetchCar = async () => {
     try {
-      const response = await fetch(`http://localhost/ppkd/carsales/backend/api/cars/get_cars.php?id=${id}`);
+      const response = await fetch(`http://localhost/.../carsales/backend/api/cars/get_cars.php?id=${id}`);
       const data = await response.json();
 
       if (data.status === "success" && data.data.length > 0) {
@@ -64,7 +64,7 @@ useEffect(() => {
 
     try {
       const response = await fetch(
-        "http://localhost/ppkd/carsales/backend/api/cars/update_car.php",
+        "http://localhost/.../carsales/backend/api/cars/update_car.php",
         {
           method: "POST",
           body: formDataToSend,
