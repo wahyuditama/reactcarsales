@@ -18,7 +18,7 @@ function AddTransaction() {
   };
 
 useEffect(() => {
-  fetch("http://localhost/ppkd/carsales/backend/api/cars/get_cars.php")
+  fetch("http://localhost/.../carsales/backend/api/cars/get_cars.php")
   .then((res)=> res.json())
   .then((resData)=>{
     if (Array.isArray(resData.data)) {
