@@ -20,7 +20,9 @@ const Login = () => {
         "http://localhost/ppkd/carsales/backend/api/auth/login.php",
         {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+          },
           body: JSON.stringify({ email, password }),
         }
       );
@@ -28,9 +30,9 @@ const Login = () => {
       const result = await response.json();
 
       if (result.status === "success") {
-        localStorage.setItem("adminToken", result.token);
-        localStorage.setItem("adminName", result.user.name);
-
+        localStorage.setItem("id", result.user);      
+        localStorage.setItem("email", result.email);
+        localStorage.setItem("role", result.role);
         setMessage("Login berhasil! Mengalihkan...");
         setTimeout(() => navigate("/admin/dashboard"), 1500);
       } else {
@@ -38,8 +40,17 @@ const Login = () => {
       }
     } catch (error) {
       console.error(error);
-      setMessage("connection gagal");
+      setMessage("Connection gagal");
     }
+  };
+
+  const handleGuestLogin = () => {
+    localStorage.setItem("id", "2");
+    localStorage.setItem("username", "guest");
+    localStorage.setItem("email", "guest@gmail.com");
+    localStorage.setItem("role", "guest");
+    localStorage.setItem("token", "guest");
+    navigate("/admin/dashboard");
   };
 
   return (
@@ -77,6 +88,14 @@ const Login = () => {
               placeholder="********"
             />
           </div>
+
+          <button
+            type="button"
+            onClick={handleGuestLogin}
+            className="text-blue-600 underline mb-4"
+          >
+            Masuk sebagai tamu?!
+          </button>
 
           <button
             type="submit"

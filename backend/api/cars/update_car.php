@@ -4,13 +4,12 @@ header("Access-Control-Allow-Methods: POST, PUT");
 header("Access-Control-Allow-Headers: Content-Type");
 header("Content-Type: application/json");
 
-//agar tidak tampil error ke browser
-ini_set('display_errors', 0);
-error_reporting(E_ALL);
+
+// ini_set('display_errors', 0);
+// error_reporting(E_ALL);
 
 include("../../config/database.php");
 
-// Ambil ID dari POST
 $id = isset($_POST['id']) ? $_POST['id'] : '';
 
 if (!$id) {

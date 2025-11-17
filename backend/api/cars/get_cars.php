@@ -1,11 +1,15 @@
 <?php
+error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING & ~E_DEPRECATED);
+ini_set('display_errors', 0);
 
 header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, POST");
+header("Access-Control-Allow-Headers: Content-Type");
 header("Content-Type: application/json");
 
 include("../../config/database.php");
 
-$sql = mysqli_query($conn, "SELECT * FROM cars ORDER by id DESC");
+$sql = mysqli_query($conn, "SELECT * FROM cars ORDER BY id DESC");
 
 if (!$sql) {
     echo json_encode([
@@ -16,7 +20,6 @@ if (!$sql) {
 }
 
 $cars = [];
-
 if ($sql->num_rows > 0) {
     while ($row = $sql->fetch_assoc()) {
         $cars[] = [

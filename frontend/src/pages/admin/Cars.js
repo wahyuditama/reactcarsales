@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AdminSidebar from "../../components/AdminSidebar";
 
 const Cars = () => {
   const [cars, setCars] = useState([]);
   const [message, setMessage] = useState("");
+  const [userId, setUserId] = useState(localStorage.getItem("id"));
 
   const fetchCars = async () => {
     try {
@@ -48,6 +49,12 @@ const Cars = () => {
     }
   };
 
+    useEffect(() => {
+      const handleStorage = () => setUserId(localStorage.getItem("id"));
+      window.addEventListener("storage", handleStorage);
+      return () => window.removeEventListener("storage", handleStorage);
+    }, []);
+  
   return (
     <div className="flex">
       <AdminSidebar />
@@ -60,10 +67,11 @@ const Cars = () => {
             {message}
           </div>
         )}
-
+          {userId === '1' && (
           <Link to="/admin/Addcar" className="inline-block mb-4 px-3 py-1.5 text-sm font-semibold text-white bg-blue-500 rounded hover:bg-blue-600">
             Tambah Data
           </Link>
+          )}
         <div className="overflow-x-auto">
           <table className="min-w-full bg-white border rounded-lg shadow-md">
             <thead className="bg-gray-200 text-gray-700 uppercase text-sm">
@@ -74,7 +82,9 @@ const Cars = () => {
                 <th className="py-3 px-4 text-left">Merek</th>
                 <th className="py-3 px-4 text-left">Harga</th>
                 <th className="py-3 px-4 text-left">Tahun</th>
-                <th className="py-3 px-4 text-left">Aksi</th>
+                {userId === '1' && (
+                  <th className="py-3 px-4 text-left">Aksi</th>
+                )}
               </tr>
             </thead>
             <tbody>
@@ -95,6 +105,7 @@ const Cars = () => {
                       Rp {parseInt(car.price).toLocaleString("id-ID")}
                     </td>
                     <td className="py-3 px-4">{car.year}</td>
+                    {userId === '1' && (
                     <td className="py-3 px-4">
                       <Link
                         to={`/admin/EditCar/${car.id}`}
@@ -109,6 +120,7 @@ const Cars = () => {
                         Hapus
                       </button>
                     </td>
+                    )}
                   </tr>
                 ))
               ) : (
